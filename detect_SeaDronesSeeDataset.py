@@ -199,7 +199,11 @@ def detect(save_img=False):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--weights', nargs='+', type=str,
+<<<<<<< HEAD
                         default='yolov7_training.pt', help='model.pt path(s)')
+=======
+                        default='yolov7.pt', help='model.pt path(s)')
+>>>>>>> cc61e6acb81c250dca794266fd149ea98fcd34d9
     # file/folder, 0 for webcam
     parser.add_argument('--source', type=str,
                         default='inference/images', help='source')
@@ -236,6 +240,11 @@ if __name__ == '__main__':
     parser.add_argument('--no-trace', action='store_true',
                         help='don`t trace model')
     opt = parser.parse_args()
+<<<<<<< HEAD
+=======
+    print(opt)
+    # check_requirements(exclude=('pycocotools', 'thop'))
+>>>>>>> cc61e6acb81c250dca794266fd149ea98fcd34d9
 
     with torch.no_grad():
         if opt.update:  # update all models (to fix SourceChangeWarning)

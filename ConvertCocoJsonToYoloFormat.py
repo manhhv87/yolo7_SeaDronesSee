@@ -36,7 +36,11 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--annotations', type=str, default=None,
                     help='path to the folder, which contains the annotation json files')
 parser.add_argument('--labels', type=str, default=None,
+<<<<<<< HEAD
                     help='path to yolov7-seadronesee/data folder')
+=======
+                    help='path to yolov7-main/data folder')
+>>>>>>> cc61e6acb81c250dca794266fd149ea98fcd34d9
 parser.add_argument('--val', action='store_true',
                     help='convert the val annotation')
 parser.add_argument('--train', action='store_true',
