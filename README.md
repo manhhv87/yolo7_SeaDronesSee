@@ -13,13 +13,9 @@ Vision Benchmark for Maritime Search and Rescue
 <br>
 SeaDronesSee is a large-scale data set aimed at helping develop systems for Search and Rescue (SAR) using Unmanned Aerial Vehicles (UAVs) in maritime scenarios. Building highly complex autonomous UAV systems that aid in SAR missions requires robust computer vision algorithms to detect and track objects or persons of interest. This data set provides three sets of tracks: object detection, single-object tracking and multi-object tracking. Each track consists of its own data set and leaderboard. 
 
-This repository contains evaluation kits, code and model samples and links to the SeaDronesSee benchmark and evaluation webserver.
-
 ## Data Sets
 
-You can find the data sets on our webserver [here](https://seadronessee.cs.uni-tuebingen.de/dataset). Currently, we provide the following data sets:
-
-Object Detection v2: 8,930 train images, 1,547 validation images, 3,750 testing images 
+You can find the data sets on our webserver [here](https://seadronessee.cs.uni-tuebingen.de/dataset):
 
 Object Detection: 5,630 train images, 859 validation images, 1,796 testing images
 
@@ -27,11 +23,7 @@ Single-Object Tracking: 58 training video clips, 70 validation video clips and 8
 
 Multi-Object Tracking: 22 video clips with 54,105 frames
 
-Multi-Spektral Object Detection: 246 train images, 61 validation images, 125 testing images
-
-Boat-MNIST (toy data set): Image Classification: 3765 train images, 1506 validation images, 2259 testing image
-
-For Object Detection, Single-Object Tracking, Multi-Object Tracking we do not hand out the test set labels but only the inputs. To evaluate your model, you may upload your prediction on our webserver, which runs an automatic evaluation protocol that yields the performance, which can be compared on a leaderboard. For Boat-MNIST, we withold the entire test set (images and labels) and you can upload an ONNX-model that will be run on the webserver to yield the accuracy.
+We do not hand out the test set labels but only the inputs. To evaluate your model, you may upload your prediction on our webserver, which runs an automatic evaluation protocol that yields the performance, which can be compared on a leaderboard.
 
 Soon, we will update the SeaDronesSee benchmark and add additional data - stay tuned.
 
@@ -49,7 +41,7 @@ The predictions are evaluated on AP50:0.05:95, AP50, AP75, AR1, AR10. You can up
 
 ### Single-Object Tracking
 
- There are 80 testing video clips on which the performance is measured. The protocol is based on the implementation of [PyTracking](https://github.com/visionml/pytracking). Note that this is a short-term Single-Object Tracking task, meaning that clips only feature objects that are present in the video during the whole video and do not disappear and reappear.
+There are 80 testing video clips on which the performance is measured. The protocol is based on the implementation of [PyTracking](https://github.com/visionml/pytracking). Note that this is a short-term Single-Object Tracking task, meaning that clips only feature objects that are present in the video during the whole video and do not disappear and reappear.
 
 You need to submit a zip-file containing exactly 80 text-files, each corresponding to the respective clip. Each text file has to be named j.txt where j is the number corresponding to the respective clip (1,...,80). Each text file has as many rows as its corresponding clip has frames. Each row has 4 comma separated numbers (x,y,w,h), where x is the left-most pixel value of the tracked object's bounding box, y the top-most pixel value and w and h the width and height of the bounding box in pixels.
 
@@ -78,25 +70,6 @@ The submission format is similar to the one for the [MOT-challenge](https://motc
 
 Inside any of the .txt files there has to be one line per object per frame. Each line is formatted like: [frame_id],[object_id],x,y,w,h
 frame_id and object_id are supposed to be integers, the rest of the numbers may be floats. The frame_id can be obtained from the .json file while the object_id can be assigned by your tracker. Coordinates x and y are the upper left coordinate of the bounding box while w and h are its width and height, respectively. All of these are expressed in pixels. 
-
-### Multi-Spektral Object Detection
-
-Currently, there is no challenge or leaderboard for this track.
-
-### Boat-MNIST
-
-This is a toy data set for the task of binary image classification. It aims at providing a simple hands-on benchmark to test small neural networks. There are the following two classes: 
-
-1 - if the image contains any watercraft instance including boats, ships, surfboards, ... ON the water
-
-0 - all the rest, i.e. just water or anything on the land (could also be boats)
-
-Naturally, there may be edge cases (e.g. boats at the verge of the water and the shore).
-
-As metrics, we employ the prediction accuracy (number of correctly predicted images divided by number of all images) and the number of parameters of the model. For this benchmark, you can upload your trained ONNX model to be ranked on the leaderboard. For that, please refer to [this sample script](Boat_MNIST/challenge_nn.py). It trains a simple single-layer perceptron architecture on this data set upon saving and exporting the Pytorch model as an ONNX file. Make sure the exported model uses the transformation provided in this code, as this is the transformation used for the webserver evaluation.
-
-You can also find some sample solutions of some groups in the folders under Boat-MNIST with their respective group number.
-
 
 #### Citation
 
