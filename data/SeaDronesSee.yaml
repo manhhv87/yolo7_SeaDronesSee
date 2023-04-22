@@ -5,9 +5,15 @@ val: ./data/val
 test: ./data/test
 
 # number of classes
-# nc: 6
 nc: 7
 
 # class names
-# names: [ 'ignored', 'swimmer', 'boat', 'jetski', 'life_saving_appliances', 'buoy']
-names: [ 'ignored', 'swimmer', 'boat', 'jetski', 'life jacket', 'lifebelt', 'buoy']
+names: [ 'ignored', 'swimmer', 'Floater', 'boat', 'Swimmers†', 'Floater†', 'life jack']
+
+# ignored
+# swimmer - boi khong phao
+# Floater - boi co phao
+# boat
+# Swimmers† - nguoi tren thuyen khong phao
+# Floater† - nguoi tren thuyen co phao
+# life jack
