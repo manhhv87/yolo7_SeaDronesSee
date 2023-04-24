@@ -17,7 +17,7 @@ SeaDronesSee is a large-scale data set aimed at helping develop systems for Sear
 
 You can find the data sets on our webserver [here](https://seadronessee.cs.uni-tuebingen.de/dataset):
 
-Object Detection: 5,630 train images, 859 validation images, 1,796 testing images
+Object Detection: 2,975 train images, 859 validation images, 1,796 testing images
 
 Single-Object Tracking: 58 training video clips, 70 validation video clips and 80 testing video clips
 
