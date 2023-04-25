@@ -5,10 +5,12 @@ val: ./data/val
 test: ./data/test
 
 # number of classes
-nc: 7
+# nc: 6   # for v1
+nc: 7   # for v2
 
 # class names
-names: [ 'ignored', 'swimmer', 'Floater', 'boat', 'Swimmers†', 'Floater†', 'life jack']
+# names: [ 'ignored', 'swimmer', 'Floater', 'boat', 'Swimmers†', 'Floater†', 'life jack']   # for v1
+names: [ 'ignored', 'swimmer', 'boat', 'jetski', 'life_saving_appliances', 'buoy']  # for v2
 
 # ignored
 # swimmer - boi khong phao
